@@ -1,7 +1,7 @@
 # LeetCode
 Repo for my LeetCode solutions, editorials, and thoughts.
 
-LeetCode is a marathon, and a thourough understanding of algorithms, their applications, variations on their implementation, language specific syntax (Python for me), and profound clarity are complete requirements for acing coding interviews and understanding programming in a more initimate sense in general.
+LeetCode is a marathon, and a thourough understanding of algorithms, their applications, variations on their implementation, language specific syntax (Python for me), and profound clarity on problem solving are complete requirements for acing coding interviews and understanding programming in a more initimate sense in general.
 
 The goal of this repo is to add version control and tracking to various topic-wise problems I solve. 
 
