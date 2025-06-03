@@ -8,11 +8,11 @@ This problem is covertly asking us to do a modified binary search. The reason I 
 
 # Solution
 
-The solution to finding the smallest value in a rotated array is to use a modified binary search. But what do I mean by modified? Well, think about a rotated array as having an inflection point. Since I know this array will always have at least one rotation, for example: [4, 5, 6, 7, 2, 3], I can think of the point where 7 -> 2 as the "inflection point". I am going to look for this inflection point as I perform binary search on the array. Whenever mid + 1 < mid, i return mid + 1, since I know I've hit my inflectino point (I'm at 7 and my mid + 1 value is 2, 2 < 7, return 2). Whenever mid - 1 > mid, return mid. (think this: if i'm at 2 and 7 > 2, return 2). Otherwise, if middle > right, I know the subsection of array i'm searching is still rotated, therefore my inflection point is to the right, middle = left + 1, if middle < right, I know my array is sorted to the right, and my inflection point is to the left of the array, hence right = middle - 1. Boom. Modified binary search
+The solution to finding the smallest value in a rotated array is to use a modified binary search. But what do I mean by modified? Well, think about a rotated array as having an inflection point. Since I know this array will always have at least one rotation, for example: [4, 5, 6, 7, 2, 3], I can think of the point where 7 -> 2 as the "inflection point". I am going to look for this inflection point as I perform binary search on the array. Whenever mid + 1 < mid, i return mid + 1, since I know I've hit my inflectino point (I'm at 7 and my mid + 1 value is 2, 2 < 7, return 2). Whenever mid - 1 > mid, return mid. (think this: if i'm at 2 and 7 > 2, return 2). Otherwise, if middle > right, I know the subsection of array i'm searching is still rotated, therefore my inflection point is to the right, middle = left + 1, if middle < right, I know my array is sorted to the right, and my inflection point is to the left of the array, hence right = middle - 1. Boom. Modified binary search. I also need to remember to handle edge cases where the lenght of the array is 1. aka there's only one value in the array, in that case just return the one value.
 
 # Intuition
 
-I didn't have a clue how to solve this problem when first looking at it, I mean, I do code in python after all, and in python I can do something like "find min in list" and python will do it. But. This question is asking for an O(log n) run time. "find min in list" does not have an O(log n) run time. I would say understanding how to modify a binary search is the key challenge for this problem, I mean sure, I know how to do a basic binary search, but understanding that I can modify it was new ground for me, and I'm sure it is for you to. As long as I can modify my search critera to perform a search on sorted subarrays of the list, I know my binary search will work. I can identify the subarrays by paying attention to an "inflection point", i.e the point where the largest number then turns to the smallest number, which is the smallest value in the array (the point of "rotation").
+I didn't have a clue how to solve this problem when first looking at it, I mean, I do code in python after all, and in python I can do something like "find min in list" and python will do it. But. This question is asking for an O(log n) run time. "find min in list" does not have an O(log n) run time. I would say understanding how to modify a binary search is the key challenge for this problem, I mean sure, I know how to do a basic binary search, but understanding that I can modify it was new ground for me, and I'm sure it is for you to. As long as I can modify my search critera to perform a search on sorted subarrays of the list, I know my binary search will work. I can identify the subarrays by paying attention to an "inflection point", i.e the point where the largest number then turns to the smallest number, which is the smallest value in the array (the point of "rotation"). I also need to handle edge cases where the lenght of the nums array is just one, in that case return just the single number. 
 
 # Algorithm ideas
 
@@ -21,6 +21,9 @@ Whenever I use binary search, I can also use a modified version. The modifying p
 # Algorithm
 
 left, right = 0, len(nums) - 1
+
+if len(nums) == 1:
+    return nums[0]
 
 while left >= right # remember this is a rotated array, so the value on the left will be bigger than the right to start
     middle = (left + right)// 2
@@ -44,13 +47,16 @@ Example input: [4, 5, 6, 7, 2, 3], when middle is 6, we check around it to see i
 def minimum_in_rotated_sorted_array(nums):
     left, right = 0, len(nums) - 1
 
+    if len(nums) == 1:
+        return nums[0]
+
     while left <= right:
         middle = (left + right) // 2
 
         if nums[middle - 1] > nums[middle]:
-            return middle
+            return nums[middle]
         if nums[middle + 1] < nums[middle]:
-            return middle + 1
+            return nums[middle + 1]
         if nums[middle] > nums[right]:
             left = middle + 1
         else:
