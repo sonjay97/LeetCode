@@ -17,7 +17,7 @@ Now that I clearly understand the problem, write the solution itself.
 
 # Intuition
 
-Summarize the key challenges posed by the problem, and the main approach I will use to solve it. When I'm writing the more detailed sections below, make sure they follow the general plan explained in this section. If they don’t, either adjust the details or adjust the plan. I can also use the intuition section to remind yourself how to solve the problem if I forget what approach I used in a future practice session. In this way, it’s a bit like the hints that LeetCode provides for some problems. But while LeetCode authors write hints cryptically, so they don’t give away too much, I should write my intuition section clearly.
+Summarize the key challenges posed by the problem, and the main approach I will use to solve it. When I'm writing the more detailed sections below, make sure they follow the general plan explained in this section. If they don’t, either adjust the details or adjust the plan. I can also use the intuition section to remind myself how to solve the problem if I forget what approach I used in a future practice session. In this way, it’s a bit like the hints that LeetCode provides for some problems. But while LeetCode authors write hints cryptically, so they don’t give away too much, I should write my intuition section clearly.
 
 # Algorithm ideas
 
